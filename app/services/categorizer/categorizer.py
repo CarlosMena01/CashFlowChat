@@ -1,5 +1,18 @@
 from langchain_ollama import OllamaLLM
 
+""""
+Este microservicio se encarga de clasificar gastos en categorías y subcategorías específicas utilizando un modelo de lenguaje natural. 
+Funciones:
+- `categorize_expense(entry)`: Toma una entrada que describe un gasto y devuelve un JSON estructurado con la descripción del gasto, el monto, la categoría principal, la subcategoría y una justificación de la clasificación.
+El proceso de clasificación sigue estos pasos:
+1. Entender el gasto: Extrae y corrige el monto y la descripción del gasto.
+2. Categorizar el gasto: Clasifica el gasto en una categoría principal (Gasto básico, Lujos, Inversión).
+3. Asignar una subcategoría: Propone una subcategoría específica dentro de la categoría principal.
+4. Validar la clasificación: Analiza y justifica la categoría y subcategoría seleccionadas.
+5. Resultado final: Devuelve un JSON con la descripción, monto, categoría, subcategoría y justificación del gasto.
+"""
+
+
 def categorize_expense(entry):
     model = OllamaLLM(model="llama3")
 
